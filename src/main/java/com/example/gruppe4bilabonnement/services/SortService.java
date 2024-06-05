@@ -2,7 +2,6 @@ package com.example.gruppe4bilabonnement.services;
 
 import com.example.gruppe4bilabonnement.models.Car;
 import com.example.gruppe4bilabonnement.models.CarBrand;
-import com.example.gruppe4bilabonnement.models.CarModel;
 import com.example.gruppe4bilabonnement.models.Customer;
 import com.example.gruppe4bilabonnement.repositories.SortRepository;
 import org.springframework.beans.factory.annotation.Autowired;
