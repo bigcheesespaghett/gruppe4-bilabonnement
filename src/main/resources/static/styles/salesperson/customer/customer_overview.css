@@ -58,6 +58,14 @@ th {
     text-align: left;
 }
 
+.table-button {
+    font-weight: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
 #customer-td {
     padding: 0;
 }
@@ -73,7 +81,7 @@ th {
 }
 
 #table-phone-number {
-    width: 20%;
+    width: 23%;
     padding: 10px 10px 10px 0;
 }
 

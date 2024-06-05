@@ -66,6 +66,14 @@ td {
     padding: 10px;
 }
 
+.table-button {
+    font-weight: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
 #car-brand-td {
     padding: 0;
 }
