@@ -114,3 +114,6 @@ select {
 #endDate {
     padding: 0.8rem;
 }
+.error-message {
+    color: red !important;
+}

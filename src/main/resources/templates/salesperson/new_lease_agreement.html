@@ -37,8 +37,8 @@
                     <input type="date" id="startDate" name="startDate" th:value="${param.startDate}" required>
                     <br><br>
                     <!-- Error message display -->
-                    <div th:if="${errorMessage}" class="error-message" style="color: red;">
-                        <p th:text="${errorMessage}"></p>
+                    <div th:if="${errorMessage}">
+                        <p th:text="${errorMessage}" class="error-message"></p>
                     </div>
                     <label for="endDate">Slutdato</label>
                     <input type="date" id="endDate" name="endDate" th:value="${param.endDate}" required>
