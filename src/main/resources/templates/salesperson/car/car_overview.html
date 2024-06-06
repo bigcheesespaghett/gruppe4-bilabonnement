@@ -23,7 +23,28 @@
                 </form>
                 <br>
                 <table>
-                    <thead><td id="table-brand">MÆRKE</td><td id="table-model">MODEL</td><td id="table-license-plate">NUMMERPLADE</td><td id="table-status">STATUS</td></thead>
+                    <thead>
+                        <td id="table-brand"><form action="/sort_cars" method="post">
+                            <input type="hidden" name="sortBy" value="brand">
+                            <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                            <button type="submit" class="table-button">MÆRKE <span th:if="${sortBy != null && sortBy.equals('brand')}"><span th:text="${orderArrow}"></span></span></button>
+                        </form></td>
+                        <td id="table-model"><form action="/sort_cars" method="post">
+                            <input type="hidden" name="sortBy" value="model_name">
+                            <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                            <button type="submit" class="table-button">MODEL <span th:if="${sortBy != null && sortBy.equals('model_name')}"><span th:text="${orderArrow}"></span></span></button>
+                        </form></td>
+                        <td id="table-license-plate"><form action="/sort_cars" method="post">
+                            <input type="hidden" name="sortBy" value="license_plate">
+                            <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                            <button type="submit" class="table-button">NUMMERPLADE <span th:if="${sortBy != null && sortBy.equals('license_plate')}"><span th:text="${orderArrow}"></span></span></button>
+                        </form></td>
+                        <td id="table-status"><form action="/sort_cars" method="post">
+                            <input type="hidden" name="sortBy" value="is_rented">
+                            <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                            <button type="submit" class="table-button">STATUS <span th:if="${sortBy != null && sortBy.equals('is_rented')}"><span th:text="${orderArrow}"></span></span></button>
+                        </form></td>
+                    </thead>
                     <tr class="general-car-info" th:each="car : ${cars}">
                         <td id="car-brand-td"><form action="/salesperson/show_car" method="get">
                             <input type="hidden" name="origin" value="car">

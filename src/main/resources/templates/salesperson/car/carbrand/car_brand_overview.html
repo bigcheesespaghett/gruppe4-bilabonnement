@@ -22,7 +22,13 @@
                 </form>
                 <br>
                 <table>
-                    <thead><td id="table-brand">BILMÆRKE</td></thead>
+                    <thead>
+                    <td id="table-brand"><form action="/sort_car_brands" method="post">
+                        <input type="hidden" name="sortBy" value="brand">
+                        <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                        <button type="submit" class="table-button">BILMÆRKE <span th:if="${sortBy != null && sortBy.equals('brand')}"><span th:text="${orderArrow}"></span></span></button>
+                    </form></td>
+                    </thead>
                     <tr class="general-car-info" th:each="carBrand : ${carBrands}">
                         <td id="car-brand-td"><form action="/salesperson/car_model_overview" method="get">
                             <input type="hidden" name="carBrand" th:value="${carBrand.brand}">

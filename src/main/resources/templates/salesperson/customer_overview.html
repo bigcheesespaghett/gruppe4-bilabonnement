@@ -19,9 +19,21 @@
             </a>
             <table>
                 <thead>
-                    <th id="table-first-name">FORNAVN</th>
-                    <th id="table-last-name">EFTERNAVN</th>
-                    <th id="table-phone-number">MOBILNUMMER</th>
+                    <th id="table-first-name"><form action="/sort_customers" method="post">
+                        <input type="hidden" name="sortBy" value="first_name">
+                        <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                        <button type="submit" class="table-button">FORNAVN <span th:if="${sortBy != null && sortBy.equals('first_name')}"><span th:text="${orderArrow}"></span></span></button>
+                    </form></th>
+                    <th id="table-last-name"><form action="/sort_customers" method="post">
+                        <input type="hidden" name="sortBy" value="last_name">
+                        <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                        <button type="submit" class="table-button">EFTERNAVN <span th:if="${sortBy != null && sortBy.equals('last_name')}"><span th:text="${orderArrow}"></span></span></button>
+                    </form></th>
+                    <th id="table-phone-number"><form action="/sort_customers" method="post">
+                        <input type="hidden" name="sortBy" value="phone_number">
+                        <input type="hidden" name="sortOrder" th:value="${sortOrder}">
+                        <button type="submit" class="table-button">MOBILNUMMER <span th:if="${sortBy != null && sortBy.equals('phone_number')}"><span th:text="${orderArrow}"></span></span></button>
+                    </form></th>
                 </thead>
                 <tr class="general-customer-info" th:each="customer : ${customers}">
                     <td id="customer-td">
