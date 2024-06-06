@@ -183,6 +183,7 @@ public class SalesPersonController {
     }
 
     //Customer deletion
+    /*
     @PostMapping("/delete_customer")
     public String delete(@RequestParam int id, @RequestParam String origin) {
         salesPersonService.deleteCustomerById(id);
@@ -191,7 +192,7 @@ public class SalesPersonController {
         } else {
             return "redirect:/salesperson/customer_profile/" + id;
         }
-    }
+    }*/
 
     //Show selected customer profile
     @GetMapping("/customer_profile/{id}")
