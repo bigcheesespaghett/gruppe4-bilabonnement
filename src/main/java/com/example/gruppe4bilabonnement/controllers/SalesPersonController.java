@@ -140,6 +140,7 @@ public class SalesPersonController {
             return "redirect:/";
         }
     } */
+
     // Bekræft sletning af kunde
     @GetMapping("/confirm_delete_customer/{id}")
     public String confirmDelete(@PathVariable int id, @RequestParam String origin, Model model, @CookieValue(name = "employeeRole") String cookieValue) {
@@ -151,7 +152,7 @@ public class SalesPersonController {
             model.addAttribute("customer", customer);
             model.addAttribute("zipCode", zipCode);
             model.addAttribute("origin", origin);
-            model.addAttribute("leaseAgreementExists", leaseAgreement != null);  // Tilføj denne linje
+            model.addAttribute("leaseAgreementExists", leaseAgreement != null);
 
             return "salesperson/delete_customer";
         } else {
@@ -326,5 +327,7 @@ public class SalesPersonController {
         mechanicService.addCarToWorkshop(carId);
         return "redirect:/salesperson/show_lease_agreement_details/" + leaseAgreementId;
     }
+
+
 
 }

@@ -22,15 +22,14 @@ public class SortRepository {
     CarRowMapper carRowMapper;
 
     @Autowired
-    private CarModelRowMapper carModelRowMapper;
+    BeanPropertyRowMapper<Customer> customerBeanPropertyRowMapper;
 
     // Sort customers by criteria
     // Placeholders (?) cannot be used on dynamic parts of the query
     public List<Customer> getSortedCustomersByCriteria(String sortBy, String sortOrder) {
-        //String query = "SELECT * FROM customer ORDER BY ? ?;";
+        //String query = "SELECT * FROM customer ORDER BY ? ?;"; !Doesn't work!
         String query = "SELECT * FROM customer ORDER BY " + sortBy + " " + sortOrder + ";";
-        RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
-        return jdbcTemplate.query(query, rowMapper);
+        return jdbcTemplate.query(query, customerBeanPropertyRowMapper);
     }
 
     // Sort cars by criteria (Join car and car model tables)
