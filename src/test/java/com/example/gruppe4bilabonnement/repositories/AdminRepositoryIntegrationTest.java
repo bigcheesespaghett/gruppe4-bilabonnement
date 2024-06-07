@@ -1,4 +1,4 @@
-package com.example.gruppe4bilabonnement;
+package com.example.gruppe4bilabonnement.repositories;
 
 import com.example.gruppe4bilabonnement.models.Employee;
 import com.example.gruppe4bilabonnement.repositories.AdminRepository;

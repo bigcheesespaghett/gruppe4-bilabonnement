@@ -242,7 +242,9 @@ public class SalesPersonController {
 
     // Create lease agreement
     @PostMapping("/create_lease_agreement")
-    public String createLeaseAgreement(@RequestParam int customerId, @ModelAttribute LeaseAgreement leaseAgreement, Model model) {
+    public String createLeaseAgreement(@RequestParam int customerId,
+                                       @ModelAttribute LeaseAgreement leaseAgreement,
+                                       Model model) {
         Car car = carService.getCarById(leaseAgreement.getCarId());
         long startKm = car.getKm();
         leaseAgreement.setStartKm(startKm);
