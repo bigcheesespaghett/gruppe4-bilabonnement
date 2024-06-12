@@ -3,8 +3,6 @@ package com.example.gruppe4bilabonnement.repositories;
 import com.example.gruppe4bilabonnement.models.Car;
 import com.example.gruppe4bilabonnement.models.CarBrand;
 import com.example.gruppe4bilabonnement.models.Customer;
-import com.example.gruppe4bilabonnement.services.rowmappers.CarModelRowMapper;
-import com.example.gruppe4bilabonnement.services.rowmappers.CarRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,20 +14,20 @@ import java.util.List;
 @Repository
 public class SortRepository {
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    CarRowMapper carRowMapper;
+    private RowMapper<Car> carRowMapper;
 
     @Autowired
-    BeanPropertyRowMapper<Customer> customerBeanPropertyRowMapper;
+    private RowMapper<Customer> customerRowMapper;
 
     // Sort customers by criteria
     // Placeholders (?) cannot be used on dynamic parts of the query
     public List<Customer> getSortedCustomersByCriteria(String sortBy, String sortOrder) {
         //String query = "SELECT * FROM customer ORDER BY ? ?;"; !Doesn't work!
         String query = "SELECT * FROM customer ORDER BY " + sortBy + " " + sortOrder + ";";
-        return jdbcTemplate.query(query, customerBeanPropertyRowMapper);
+        return jdbcTemplate.query(query, customerRowMapper);
     }
 
     // Sort cars by criteria (Join car and car model tables)

@@ -7,6 +7,7 @@ import com.example.gruppe4bilabonnement.services.rowmappers.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 
@@ -17,16 +18,16 @@ public class CarRepository {
 
     // Method 1
     // Dependency injection via field
-    /*@Autowired
-    private CarModelRowMapper carModelRowMapper;*/
+    @Autowired
+    private RowMapper<CarModel> carModelRowMapper;
 
     // Method 2
     // Dependency injection via the constructor.
-    private final CarModelRowMapper carModelRowMapper;
+    /*private final CarModelRowMapper carModelRowMapper;
 
     public CarRepository(CarModelRowMapper carModelRowMapper) {
         this.carModelRowMapper = carModelRowMapper;
-    }
+    }*/
 
     public CarModel getCarModelByBrandAndModelNameAndCarType(CarBrand carBrand, String carModelName, CarType carType) {
         String query = "SELECT * FROM car_model WHERE brand = ? AND model_name = ? AND car_type = ?;";
